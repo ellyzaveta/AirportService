@@ -1,0 +1,12 @@
+button {
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 12px 100px;
+    max-width: 345px;
+    max-height: 54px;
+    box-sizing: border-box;
+    transition: 0.3s;
+    border: 2px solid rgba(71, 41, 36, 1);
+}
