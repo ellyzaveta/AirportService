@@ -12,10 +12,12 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.airportService.backend.models.Role;
 
+@PageTitle("Log-in")
 @Route("login")
 public class LoginPage extends VerticalLayout {
     private final HorizontalLayout horizontalLayout = new HorizontalLayout();

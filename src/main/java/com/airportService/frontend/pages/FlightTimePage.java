@@ -12,7 +12,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Route("hello")
+@Route("")
 public class FlightTimePage extends VerticalLayout {
     @Autowired
     private final FlightController mainFlightController;
