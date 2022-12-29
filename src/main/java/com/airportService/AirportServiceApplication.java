@@ -17,6 +17,5 @@ public class AirportServiceApplication {
     private void testJpaMethods() throws IOException {
 
     }
-
 }
 
