@@ -10,15 +10,20 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H4;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouterLayout;
+import com.vaadin.flow.server.InitialPageSettings;
+import com.vaadin.flow.server.PageConfigurator;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @PageTitle("Ticket booking")
 @Route("main")
-public class BasicLayoutView extends VerticalLayout {
+public class BasicLayoutView extends VerticalLayout implements RouterLayout, PageConfigurator  {
     @Autowired
     private final MainFlightController mainFlightController;
     Image image = new Image("images/wow.png", "map");
@@ -90,5 +95,10 @@ public class BasicLayoutView extends VerticalLayout {
         flightList.getElement().getStyle().set("padding-right", "90px");
         content.add(main, verticalLayout, flightList);
         add(header, content, footer);
+    }
+
+    @Override
+    public void configurePage(InitialPageSettings settings) {
+        settings.addFavIcon("icon", "images/plane-icon.png", "20x20");
     }
 }
