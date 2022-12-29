@@ -26,4 +26,5 @@ public interface FlightsService {
     List<FlightTime> getTimeInterval(Date lowBoundary, Date highBoundary);
     List<FlightTime> getTimeInterval();
     void changeNumOfTicketToPlusOne(Long id);
+    List<FlightFuel> getFuelReportBasedOnModel(String model);
 }

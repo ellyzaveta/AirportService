@@ -115,4 +115,9 @@ public class FlightsServiceImpl implements FlightsService{
     public void changeNumOfTicketToPlusOne(Long id) {
         flightRepository.changeNumOfTicketToPlusOne(id);
     }
+
+    @Override
+    public List<FlightFuel> getFuelReportBasedOnModel(String model) {
+        return flightRepository.getFuelReportBasedOnModel(model);
+    }
 }
