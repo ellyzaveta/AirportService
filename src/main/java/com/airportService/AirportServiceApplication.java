@@ -19,8 +19,9 @@ public class AirportServiceApplication {
     private DataFactory dataFactory;
 
     @EventListener(ApplicationReadyEvent.class)
-    private void testJpaMethods() throws IOException {
+    private void test() throws IOException {
 //        dataFactory.init();
+//        dataFactory.addFlight(1);
 //        dataFactory.addFlight(1);
 //        dataFactory.addFlight(1);
 //        dataFactory.addFlight(0);
