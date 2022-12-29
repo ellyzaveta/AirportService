@@ -14,12 +14,15 @@ import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouterLayout;
+import com.vaadin.flow.server.InitialPageSettings;
+import com.vaadin.flow.server.PageConfigurator;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.airportService.backend.models.Role;
 
 @PageTitle("Log-in")
 @Route("login")
-public class LoginPage extends VerticalLayout {
+public class LoginPage extends VerticalLayout implements RouterLayout, PageConfigurator {
     private final HorizontalLayout horizontalLayout = new HorizontalLayout();
     private final Image registrationAgentImage = new Image("images/reg-ag.png", "img1");
     private final Image securityOfficerImage = new Image("images/passport-control.png", "img2");
@@ -138,6 +141,11 @@ public class LoginPage extends VerticalLayout {
         else {
             errorNotification.open();
         }
+    }
+
+    @Override
+    public void configurePage(InitialPageSettings settings) {
+        settings.addFavIcon("icon", "images/plane-icon.png", "20x20");
     }
 
     public void close(VerticalLayout verticalLayout) {

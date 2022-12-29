@@ -11,11 +11,14 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouterLayout;
+import com.vaadin.flow.server.InitialPageSettings;
+import com.vaadin.flow.server.PageConfigurator;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @PageTitle("Return ticket")
 @Route("return")
-public class ReturnTicketPage extends VerticalLayout {
+public class ReturnTicketPage extends VerticalLayout implements RouterLayout, PageConfigurator {
     @Autowired
     private final TicketController ticketController;
     Header header;
@@ -43,5 +46,10 @@ public class ReturnTicketPage extends VerticalLayout {
 
         add(header, content, footer);
         this.setPadding(false);
+    }
+
+    @Override
+    public void configurePage(InitialPageSettings settings) {
+        settings.addFavIcon("icon", "images/plane-icon.png", "20x20");
     }
 }
