@@ -11,6 +11,8 @@ import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -30,10 +32,14 @@ public class FuelReportPage extends VerticalLayout {
     private final Image bottom = new Image("images/bottom.png", "bottom");
     VerticalLayout background = new VerticalLayout();
     private final H1 heading = new H1("Fuel report");
+    private final TextField filter = new TextField();
 
     public FuelReportPage(MainFlightController mainFlightController) {
+        filter.setPlaceholder("aircraft model");
+        filter.setValueChangeMode(ValueChangeMode.EAGER);
+        filter.addValueChangeListener(field -> fillList(field.getValue()));
         this.mainFlightController = mainFlightController;
-        grid.setItems(mainFlightController.getFuelReport());
+        fillList("");
         grid.getElement().getStyle().set("box-shadow", "0px 4px 20px rgba(0, 0, 0, 0.25)");
         verticalLayout.getElement().getStyle().set("background", "rgba(236, 243, 249, 1)");
         header = new HeaderStuff(button1, button2, "time", "fuel");
@@ -42,7 +48,7 @@ public class FuelReportPage extends VerticalLayout {
         content.add(main);
         content.setPadding(false);
         verticalLayout.getElement().getStyle().set("padding", "0px 90px");
-        verticalLayout.add(heading, grid);
+        verticalLayout.add(heading, filter, grid);
         heading.getElement().getStyle().set("margin-top", "0");
         background.add(up, verticalLayout, bottom);
         background.setPadding(false);
@@ -53,5 +59,13 @@ public class FuelReportPage extends VerticalLayout {
         bottom.getElement().getStyle().set("margin-top", "0px");
         add(header, content, footer);
         this.setPadding(false);
+    }
+
+    private void fillList(String filter) {
+        if (filter.isEmpty()) {
+            grid.setItems(mainFlightController.getFuelReport());
+        } else {
+            grid.setItems(mainFlightController.getFuelReportBasedOnModel(filter));
+        }
     }
 }
