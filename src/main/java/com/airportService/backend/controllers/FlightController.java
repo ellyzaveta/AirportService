@@ -89,5 +89,9 @@ public class FlightController {
     public void changeNumOfTicketToPlusOne(Long id) {
         flightsService.changeNumOfTicketToPlusOne(id);
     }
+
+    public List<FlightFuel> getFuelReportBasedOnModel(String model) {
+        return flightsService.getFuelReportBasedOnModel(model);
+    }
 }
 

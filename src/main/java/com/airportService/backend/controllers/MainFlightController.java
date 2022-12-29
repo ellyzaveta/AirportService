@@ -146,4 +146,8 @@ public class MainFlightController {
     public Passenger findByPassportNumber(String passportNumber) {
         return passengerController.findByPassportNumber(passportNumber);
     }
+
+    public List<FlightFuel> getFuelReportBasedOnModel(String model) {
+        return flightController.getFuelReportBasedOnModel(model);
+    }
 }
