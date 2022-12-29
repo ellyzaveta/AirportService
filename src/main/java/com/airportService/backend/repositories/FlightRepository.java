@@ -26,6 +26,9 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
     @Query("select new com.airportService.backend.modelsLight.FlightFuel(f.flightNumber, f.aircraft.model, f.totalTime, f.aircraft.fuelPerHour) from Flight f")
     List<FlightFuel> getFuelReport();
 
+    @Query("select new com.airportService.backend.modelsLight.FlightFuel(f.flightNumber, f.aircraft.model, f.totalTime, f.aircraft.fuelPerHour) from Flight f where f.aircraft.model=:model")
+    List<FlightFuel> getFuelReportBasedOnModel(@Param("model") String model);
+
     @Query(value = "SELECT f FROM Flight f WHERE f.departureTime >= :low and f.departureTime <= :high")
     List<Flight> getFlightReportBasedOnTimeInterval(@Param("low") Date lowBoundary, @Param("high")Date highBoundary);
 
