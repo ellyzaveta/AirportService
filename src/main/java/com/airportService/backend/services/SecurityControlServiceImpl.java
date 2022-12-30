@@ -40,4 +40,9 @@ public class SecurityControlServiceImpl implements SecurityControlService{
     public List<SecurityControl> getRecordByPassport(String passportNumber) {
         return securityControlRepository.getRecordByPassport(passportNumber);
     }
+
+    @Override
+    public void delete(SecurityControl securityControlRecord) {
+        securityControlRepository.delete(securityControlRecord);
+    }
 }

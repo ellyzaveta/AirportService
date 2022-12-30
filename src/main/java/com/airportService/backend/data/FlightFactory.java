@@ -35,7 +35,7 @@ public class FlightFactory {
         Date cur = new Date();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(cur);
-        calendar.add(Calendar.HOUR_OF_DAY, 1);
+        calendar.add(Calendar.HOUR_OF_DAY, random.nextInt(2));
         return calendar.getTime();
     }
 
@@ -43,7 +43,7 @@ public class FlightFactory {
         Date departureTime = getDate();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(departureTime);
-        calendar.add(Calendar.HOUR_OF_DAY, random.nextInt(4));
+        calendar.add(Calendar.HOUR_OF_DAY, randBetween(1, 4));
         Date arrivalTime;
         do{
             arrivalTime = calendar.getTime();
@@ -72,12 +72,8 @@ public class FlightFactory {
         Date departureTime = getDateIn2Hours();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(departureTime);
-        calendar.add(Calendar.HOUR_OF_DAY, random.nextInt(4));
+        calendar.add(Calendar.HOUR_OF_DAY, randBetween(1, 4));
         Date arrivalTime = calendar.getTime();
-        do {
-            arrivalTime = calendar.getTime();
-        }while(arrivalTime == departureTime);
-
         String depAirport = airports.get(random.nextInt(airports.size()));
         String arrAirport;
         do {

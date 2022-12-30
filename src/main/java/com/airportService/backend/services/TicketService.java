@@ -3,6 +3,7 @@ package com.airportService.backend.services;
 import com.airportService.backend.models.Ticket;
 import com.airportService.backend.modelsLight.TicketForm;
 import com.airportService.backend.modelsLight.TicketLight;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -18,4 +19,5 @@ public interface TicketService {
     List<TicketLight> getTicketsLightOnPassport(String passport);
     List<TicketLight> getTicketsLightOnFlightAndPassport(String flight, String passport);
     void setHasBoardingPassToTrue(Long id);
+    List<Ticket> findByPassengerID(@Param("id") Long id);
 }

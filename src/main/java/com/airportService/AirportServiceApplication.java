@@ -23,7 +23,7 @@ public class AirportServiceApplication {
 //        dataFactory.init();
 //        dataFactory.addFlight(1);
 //        dataFactory.addFlight(1);
-//        dataFactory.addFlight(1);
+//        dataFactory.addFlight(0);
 //        dataFactory.addFlight(0);
 //        dataFactory.addFlight(0);
 //        dataFactory.addFlight(0);

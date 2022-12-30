@@ -35,4 +35,8 @@ public class PassportControlController {
     public List<PassportControl> getRecordByPassport(String passportNumber) {
         return passportControlService.getRecordByPassport(passportNumber);
     }
+
+    public void delete(PassportControl passportControlRecord) {
+        passportControlService.delete(passportControlRecord);
+    }
 }

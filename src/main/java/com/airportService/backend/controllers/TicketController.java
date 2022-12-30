@@ -1,5 +1,7 @@
 package com.airportService.backend.controllers;
 
+import com.airportService.backend.models.PassportControl;
+import com.airportService.backend.models.SecurityControl;
 import com.airportService.backend.models.Ticket;
 import com.airportService.backend.modelsLight.TicketForm;
 import com.airportService.backend.modelsLight.TicketLight;
@@ -17,11 +19,17 @@ public class TicketController {
     private final SeatPlaceController seatPlaceController;
     @Autowired
     private final FlightController flightController;
+    @Autowired
+    private final SecurityControlController securityControlController;
+    @Autowired
+    private final PassportControlController passportControlController;
 
-    public TicketController(TicketServiceImpl ticketService, SeatPlaceController seatPlaceController, FlightController flightController) {
+    public TicketController(TicketServiceImpl ticketService, SeatPlaceController seatPlaceController, FlightController flightController, SecurityControlController securityControlController, PassportControlController passportControlController) {
         this.ticketService = ticketService;
         this.seatPlaceController = seatPlaceController;
         this.flightController = flightController;
+        this.securityControlController = securityControlController;
+        this.passportControlController = passportControlController;
     }
 
     public TicketForm getTicketFormById(Long id) {
@@ -34,6 +42,16 @@ public class TicketController {
 
     public void delete(Ticket ticket) {
         ticketService.delete(ticket);
+        List<SecurityControl> securityRecord = securityControlController.getRecordByPassport(ticket.getPassenger().getPassportNumber());
+        for(SecurityControl record: securityRecord) {
+            securityControlController.delete(record);
+        }
+
+        List<PassportControl> passportRecord = passportControlController.getRecordByPassport(ticket.getPassenger().getPassportNumber());
+        for(PassportControl record: passportRecord) {
+            passportControlController.delete(record);
+        }
+
         seatPlaceController.setSeatToUnReserved(ticket.getSeatPlace().getId());
         flightController.changeNumOfTicketToPlusOne(ticket.getFlight().getId());
     }
@@ -68,5 +86,9 @@ public class TicketController {
 
     public void setHasBoardingPassToTrue(Long id) {
         ticketService.setHasBoardingPassToTrue(id);
+    }
+
+    public List<Ticket> findByPassengerID(Long id) {
+        return ticketService.findByPassengerID(id);
     }
 }

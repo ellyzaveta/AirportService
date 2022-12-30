@@ -16,11 +16,11 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
     List<Flight> getFlightsBasedOnDestAirport(@Param("airport") String airportName);
 
     @Query("select new com.airportService.backend.modelsLight.FlightLight(f.flightNumber, f.departureTime, " +
-            "f.arrivalTime, f.depAirport, f.arrAirport) from Flight f where f.arrAirport = :airport and f.numOfAvailablePlaces > 0")
+            "f.arrivalTime, f.depAirport, f.arrAirport, f.price) from Flight f where f.arrAirport = :airport and f.numOfAvailablePlaces > 0")
     List<FlightLight> getFlightsOnDestAirport(@Param("airport") String airportName);
 
     @Query("select new com.airportService.backend.modelsLight.FlightLight(f.flightNumber, f.departureTime, " +
-            "f.arrivalTime, f.depAirport, f.arrAirport) from Flight f where f.numOfAvailablePlaces > 0")
+            "f.arrivalTime, f.depAirport, f.arrAirport, f.price) from Flight f where f.numOfAvailablePlaces > 0")
     List<FlightLight> getFlightsLight();
 
     @Query("select new com.airportService.backend.modelsLight.FlightFuel(f.flightNumber, f.aircraft.model, f.totalTime, f.aircraft.fuelPerHour) from Flight f")

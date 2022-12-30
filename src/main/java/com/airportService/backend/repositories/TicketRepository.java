@@ -34,6 +34,9 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
             "t.seatPlace.seatNumber, t.uniqueNumber) from Ticket t where t.hasBoardingPass = false and t.passenger.passportNumber =:passport and t.flight.flightNumber =:flight")
     List<TicketLight> getTicketsLightOnFlightAndPassport(@Param("flight") String flight, @Param("passport") String passport);
 
+    @Query("select t from Ticket t where t.passenger.id =:id")
+    List<Ticket> findByPassengerID(@Param("id") Long id);
+
     @Modifying
     @Transactional
     @Query("update Ticket t set t.hasBoardingPass = true where t.id = :id")

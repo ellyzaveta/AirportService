@@ -40,4 +40,9 @@ public class PassportControlServiceImpl implements PassportControlService {
     public List<PassportControl> getRecordByPassport(String passportNumber) {
         return passportControlRepository.getRecordByPassport(passportNumber);
     }
+
+    @Override
+    public void delete(PassportControl passportControlRecord) {
+        passportControlRepository.delete(passportControlRecord);
+    }
 }

@@ -72,5 +72,10 @@ public class TicketServiceImpl implements TicketService {
     public void setHasBoardingPassToTrue(Long id) {
         ticketRepository.setHasBoardingPassToTrue(id);
     }
+
+    @Override
+    public List<Ticket> findByPassengerID(Long id) {
+        return ticketRepository.findByPassengerID(id);
+    }
 }
 

@@ -10,4 +10,5 @@ public interface SecurityControlService {
     void updateComments(Long id, String comments);
     void updateToChecked(Long id);
     List<SecurityControl> getRecordByPassport(String passportNumber);
+    void delete(SecurityControl securityControlRecord);
 }
