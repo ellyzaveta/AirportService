@@ -45,7 +45,7 @@ The class architecture for the design object consists of the following elements:
 
 <br />
 
-<img src="https://drive.google.com/uc?export=view&id=1-yNPlYtlnokcAyHk_dhmaoZLxtl1pbbf" alt="uml-class-diagram" width="700">
+<img src="https://drive.google.com/uc?export=view&id=1-yNPlYtlnokcAyHk_dhmaoZLxtl1pbbf" alt="uml-class-diagram" width="900">
 
 <br />
 
@@ -62,7 +62,7 @@ The following users can be identified in our system:
 
 <br />
 
-<img src="https://drive.google.com/uc?export=view&id=1jsm3S8AsOmpOcvL9NalSyV_bW_WLMF-O" alt="uml-case-diagram" width="700">
+<img src="https://drive.google.com/uc?export=view&id=1jsm3S8AsOmpOcvL9NalSyV_bW_WLMF-O" alt="uml-case-diagram" width="900">
 
 <br />
 
@@ -77,7 +77,7 @@ The developed app uses two databases: PostgreSQL (relational) and Redis (key/val
 
 <br />
 
-<img src="https://drive.google.com/uc?export=view&id=13Cft9zPZFXBWJiuYDlmyhP3JxkLH5FZd" alt="er-diagram" width="700">
+<img src="https://drive.google.com/uc?export=view&id=13Cft9zPZFXBWJiuYDlmyhP3JxkLH5FZd" alt="er-diagram" width="900">
 
 The logical schema of the database contains the following relationships between entities:
 
@@ -116,7 +116,7 @@ Web app interface:
 
 <br />
 
-<img src="https://drive.google.com/uc?export=view&id=1deqR4tHoZ-jSUNCGqQoxhXWOmbiTO8ai" alt="interface-1" width="700">
-<img src="https://drive.google.com/uc?export=view&id=1H1yUanRBbehTFRwPGevLNM3m_2jtZFnm" alt="interface-2" width="700">
+<img src="https://drive.google.com/uc?export=view&id=1deqR4tHoZ-jSUNCGqQoxhXWOmbiTO8ai" alt="interface-1" width="900">
+<img src="https://drive.google.com/uc?export=view&id=1H1yUanRBbehTFRwPGevLNM3m_2jtZFnm" alt="interface-2" width="900">
 
 
