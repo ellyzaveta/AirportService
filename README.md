@@ -110,8 +110,8 @@ It is worth noting that an additional table (seat_place) has been created to rep
 
 Web app interface:
 - implements all necessary functionality;
-- is convenient to use and intuitive for both the potential passenger and the employee (Fig. 4.3.1);
-- contains the necessary notifications, for example, a message about errors in case of incorrectly entered data (Fig. 4.3.2);
+- is convenient to use and intuitive for both the potential passenger and the employee;
+- contains the necessary notifications, for example, a message about errors in case of incorrectly entered data;
 - able to cope with unpredictable usage scenarios.
 
 <br />
