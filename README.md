@@ -36,6 +36,7 @@ The developed app solves the following tasks:
 <br />
 
 The class architecture for the design object consists of the following elements:
+
 - Data models – database entity classes (Passenger, Ticket, Flight, Aircraft, Seat, SeatPlace, BoardingPass, Luggage, LuggageType, LuggageControl, SecurityControl, BoardingControl, User).
 - _Repository interfaces – inherited from ready-made interfaces for accessing database entities.
 - _Service interfaces – concentrate prototypes of data access methods.
@@ -53,10 +54,11 @@ The class architecture for the design object consists of the following elements:
 <br />
 
 The following users can be identified in our system:
-• Passenger
-• Registration agent
-• Manager
-• Security officer
+
+- Passenger
+- Registration agent
+- Manager
+- Security officer
 
 <br />
 
@@ -77,18 +79,30 @@ The developed app uses two databases: PostgreSQL (relational) and Redis (key/val
 <img src="https://drive.google.com/uc?export=view&id=13Cft9zPZFXBWJiuYDlmyhP3JxkLH5FZd" alt="er-diagram">
 
 The logical schema of the database contains the following relationships between entities:
+
 • ONE-TO-MANY:
+
+<br />
+
 - One passenger can have many tickets, but a separate ticket can belong to only one passenger;
 - One flight can belong to many tickets, but a separate ticket can contain only one flight;
 - One aircraft can perform many flights, but a separate flight is performed by a specific aircraft.
 - One aircraft has many seats, but a certain seat belongs to the scheme of a certain aircraft model.
 - One type of luggage (luggage_type) can belong to many pieces of luggage (luggage), but individual luggage can belong to only one type
+  
 • ONE-TO-ONE:
+
+<br />
+
 - One ticket (ticket) belongs to a certain place in the plane (seat_place)
 - A separate boarding pass (boarding_pass) is formed on the basis of the corresponding ticket (ticket)
 - A separate boarding pass (boarding_pass) contains one piece of luggage
 - A certain boarding pass (boarding_pass) and/or a separate passenger (passenger) is contained in one record of passing controls (security_check, luggage_check, boarding_check)
+  
 • MANY-TO-MANY:
+
+<br />
+
 - Each flight contains a list of seats available for reservation, at the same time, each seat can be found in different flights.
 
 It is worth noting that an additional table (seat_place) has been created to represent this relationship, which ensures the achievement of various combinations, and its is_reserved attribute provides the ability for an individual flight to mark seats as available or selected.
@@ -100,10 +114,10 @@ It is worth noting that an additional table (seat_place) has been created to rep
 <br />
 
 Web app interface:
-• implements all necessary functionality;
-• is convenient to use and intuitive for both the potential passenger and the employee (Fig. 4.3.1);
-• contains the necessary notifications, for example, a message about errors in case of incorrectly entered data (Fig. 4.3.2);
-• able to cope with unpredictable usage scenarios.
+- implements all necessary functionality;
+- is convenient to use and intuitive for both the potential passenger and the employee (Fig. 4.3.1);
+- contains the necessary notifications, for example, a message about errors in case of incorrectly entered data (Fig. 4.3.2);
+- able to cope with unpredictable usage scenarios.
 
 <br />
 
