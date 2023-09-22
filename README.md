@@ -45,7 +45,7 @@ The class architecture for the design object consists of the following elements:
 
 <br />
 
-<img src="https://drive.google.com/uc?export=view&id=1-yNPlYtlnokcAyHk_dhmaoZLxtl1pbbf" alt="uml-class-diagram">
+<img src="https://drive.google.com/uc?export=view&id=1-yNPlYtlnokcAyHk_dhmaoZLxtl1pbbf" alt="uml-class-diagram" width="700">
 
 <br />
 
@@ -62,7 +62,7 @@ The following users can be identified in our system:
 
 <br />
 
-<img src="https://drive.google.com/uc?export=view&id=1jsm3S8AsOmpOcvL9NalSyV_bW_WLMF-O" alt="uml-case-diagram">
+<img src="https://drive.google.com/uc?export=view&id=1jsm3S8AsOmpOcvL9NalSyV_bW_WLMF-O" alt="uml-case-diagram" width="700">
 
 <br />
 
@@ -71,18 +71,17 @@ The following users can be identified in our system:
 <br />
 
 The developed app uses two databases: PostgreSQL (relational) and Redis (key/value).
-• Relational database gathers basic information and contains data about tickets and airport operations.
-• The key/value database contains data about employee roles and passwords.
+
+- Relational database gathers basic information and contains data about tickets and airport operations.
+- The key/value database contains data about employee roles and passwords.
 
 <br />
 
-<img src="https://drive.google.com/uc?export=view&id=13Cft9zPZFXBWJiuYDlmyhP3JxkLH5FZd" alt="er-diagram">
+<img src="https://drive.google.com/uc?export=view&id=13Cft9zPZFXBWJiuYDlmyhP3JxkLH5FZd" alt="er-diagram" width="700">
 
 The logical schema of the database contains the following relationships between entities:
 
 • ONE-TO-MANY:
-
-<br />
 
 - One passenger can have many tickets, but a separate ticket can belong to only one passenger;
 - One flight can belong to many tickets, but a separate ticket can contain only one flight;
@@ -92,16 +91,12 @@ The logical schema of the database contains the following relationships between 
   
 • ONE-TO-ONE:
 
-<br />
-
 - One ticket (ticket) belongs to a certain place in the plane (seat_place)
 - A separate boarding pass (boarding_pass) is formed on the basis of the corresponding ticket (ticket)
 - A separate boarding pass (boarding_pass) contains one piece of luggage
 - A certain boarding pass (boarding_pass) and/or a separate passenger (passenger) is contained in one record of passing controls (security_check, luggage_check, boarding_check)
   
 • MANY-TO-MANY:
-
-<br />
 
 - Each flight contains a list of seats available for reservation, at the same time, each seat can be found in different flights.
 
@@ -121,7 +116,7 @@ Web app interface:
 
 <br />
 
-<img src="https://drive.google.com/uc?export=view&id=1deqR4tHoZ-jSUNCGqQoxhXWOmbiTO8ai" alt="interface-1">
-<img src="https://drive.google.com/uc?export=view&id=1H1yUanRBbehTFRwPGevLNM3m_2jtZFnm" alt="interface-2">
+<img src="https://drive.google.com/uc?export=view&id=1deqR4tHoZ-jSUNCGqQoxhXWOmbiTO8ai" alt="interface-1" width="700">
+<img src="https://drive.google.com/uc?export=view&id=1H1yUanRBbehTFRwPGevLNM3m_2jtZFnm" alt="interface-2" width="700">
 
 
